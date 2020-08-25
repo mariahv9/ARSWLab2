@@ -18,6 +18,7 @@ Ejecución del proyecto desde consola.
 
 ```
 cd ARSWLab2
+cd INMORTALS
 mvn package
 java -cp target/ConcurrentPrgExercises-Highlander-Prod-Cons-1.0.jar edu.eci.arst.concprg.prodcons.StartProduction
 ```
