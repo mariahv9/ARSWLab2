@@ -77,6 +77,8 @@ Se modifican las clases ``` Consumer.java ``` y ``` Producer.java ```. En la im�
 
 2. Review the code and identify how the functionality indicated above was implemented. Given the intention of the game, an invariant should be that the sum of the life points of all players is always the same (of course, in an instant of time in which a time increase / reduction operation is not in process ). For this case, for N players, what should this value be?
 
+* En el código de inmotals se tiene una invariante que es ``` sumTotal ```, donde se va acumulando las vidas inmortales de los jugadores. Adicional, se sabe que un jugador atacado se le resta 10 de vida y al atacante se le adiciona 10. Cada jugador inicia con 100 puntos de vida.
+
 3. Run the application and verify how the ‘pause and check’ option works. Is the invariant fulfilled?
 
 * No se está obteniendo los resultados que se esperan en N=3.
@@ -85,7 +87,11 @@ Se modifican las clases ``` Consumer.java ``` y ``` Producer.java ```. En la im�
 
 4. A first hypothesis that the race condition for this function (pause and check) is presented is that the program consults the list whose values ​​it will print, while other threads modify their values. To correct this, do whatever is necessary so that, before printing the current results, all other threads are paused. Additionally, implement the ‘resume’ option.
 
+// foto
+
 5. Check the operation again (click the button many times). Is the invariant fulfilled or not ?.
+
+//foto + analisis invariante sin cumplir
 
 6. Identify possible critical regions in regards to the fight of the immortals. Implement a blocking strategy that avoids race conditions. Remember that if you need to use two or more ‘locks’ simultaneously, you can use nested synchronized blocks:
 
@@ -99,6 +105,8 @@ Las regiones criticas encontradas son:
 8. Consider a strategy to correct the problem identified above (you can review Chapter 15 of Java Concurrency in Practice again).
 
 9. Once the problem is corrected, rectify that the program continues to function consistently when 100, 1000 or 10000 immortals are executed. If in these large cases the invariant begins to be breached again, you must analyze what was done in step 4.
+
+//foto invariante listo
 
 10. An annoying element for the simulation is that at a certain point in it there are few living 'immortals' making failed fights with 'immortals' already dead. It is necessary to suppress the immortal dead of the simulation as they die. 
 
