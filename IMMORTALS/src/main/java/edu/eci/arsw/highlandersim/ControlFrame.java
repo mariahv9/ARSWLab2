@@ -2,6 +2,7 @@ package edu.eci.arsw.highlandersim;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,6 +36,7 @@ public class ControlFrame extends JFrame {
     private JLabel statisticsLabel;
     private JScrollPane scrollPane;
     private JTextField numOfImmortals;
+    private ArrayList<Integer> pause = new ArrayList<>();
 
     /**
      * Launch the application.
@@ -91,6 +93,8 @@ public class ControlFrame extends JFrame {
                 /*
 				 * COMPLETAR
                  */
+                pause.add(77);
+                allsleeping();
                 int sum = 0;
                 for (Immortal im : immortals) {
                     sum += im.getHealth();
@@ -111,6 +115,10 @@ public class ControlFrame extends JFrame {
                 /**
                  * IMPLEMENTAR
                  */
+                synchronized (pause){
+                    pause.clear();
+                    pause.notifyAll();
+                }
 
             }
         });
@@ -126,6 +134,17 @@ public class ControlFrame extends JFrame {
         numOfImmortals.setColumns(10);
 
         JButton btnStop = new JButton("STOP");
+
+        btnStop.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                for (Immortal i: immortals){
+                    i.setDead();
+                }
+
+            }
+        });
+
         btnStop.setForeground(Color.RED);
         toolBar.add(btnStop);
 
@@ -142,6 +161,10 @@ public class ControlFrame extends JFrame {
 
     }
 
+    private void allsleeping() {
+        while (pause.size()>immortals.size()){}
+    }
+
     public List<Immortal> setupInmortals() {
 
         ImmortalUpdateReportCallback ucb=new TextAreaUpdateReportCallback(output,scrollPane);
@@ -152,7 +175,7 @@ public class ControlFrame extends JFrame {
             List<Immortal> il = new LinkedList<Immortal>();
 
             for (int i = 0; i < ni; i++) {
-                Immortal i1 = new Immortal("im" + i, il, DEFAULT_IMMORTAL_HEALTH, DEFAULT_DAMAGE_VALUE,ucb);
+                Immortal i1 = new Immortal("im" + i, il, DEFAULT_IMMORTAL_HEALTH, DEFAULT_DAMAGE_VALUE,ucb,pause);
                 il.add(i1);
             }
             return il;
