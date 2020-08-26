@@ -87,11 +87,7 @@ Se modifican las clases ``` Consumer.java ``` y ``` Producer.java ```. En la im�
 
 4. A first hypothesis that the race condition for this function (pause and check) is presented is that the program consults the list whose values ​​it will print, while other threads modify their values. To correct this, do whatever is necessary so that, before printing the current results, all other threads are paused. Additionally, implement the ‘resume’ option.
 
-// foto
-
 5. Check the operation again (click the button many times). Is the invariant fulfilled or not ?.
-
-//foto + analisis invariante sin cumplir
 
 6. Identify possible critical regions in regards to the fight of the immortals. Implement a blocking strategy that avoids race conditions. Remember that if you need to use two or more ‘locks’ simultaneously, you can use nested synchronized blocks:
 
@@ -105,8 +101,6 @@ Las regiones criticas encontradas son:
 8. Consider a strategy to correct the problem identified above (you can review Chapter 15 of Java Concurrency in Practice again).
 
 9. Once the problem is corrected, rectify that the program continues to function consistently when 100, 1000 or 10000 immortals are executed. If in these large cases the invariant begins to be breached again, you must analyze what was done in step 4.
-
-//foto invariante listo
 
 10. An annoying element for the simulation is that at a certain point in it there are few living 'immortals' making failed fights with 'immortals' already dead. It is necessary to suppress the immortal dead of the simulation as they die. 
 
