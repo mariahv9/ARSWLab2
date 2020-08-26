@@ -93,6 +93,8 @@ Se modifican las clases ``` Consumer.java ``` y ``` Producer.java ```. En la im�
 
 5. Check the operation again (click the button many times). Is the invariant fulfilled or not ?.
 
+* Aún se puede observar en los resultados que el invariante no se completa.
+
 6. Identify possible critical regions in regards to the fight of the immortals. Implement a blocking strategy that avoids race conditions. Remember that if you need to use two or more ‘locks’ simultaneously, you can use nested synchronized blocks:
 
 Las regiones criticas encontradas son:
