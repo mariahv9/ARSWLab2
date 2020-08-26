@@ -57,6 +57,14 @@ Se modifican las clases ``` Consumer.java ``` y ``` Producer.java ```. En la im�
 ![4stock](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/4stock.png)
 ![jv](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/3part.png)
 
+### Clase consumidor
+
+![consumer](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/consumer.png)
+
+### Clase productor 
+
+![producer](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/producer.png)
+
 ## Part II - Synchronization and Dead-Locks.
 
 ![imortal](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/imortal.png)
@@ -71,6 +79,10 @@ Se modifican las clases ``` Consumer.java ``` y ``` Producer.java ```. En la im�
 
 3. Run the application and verify how the ‘pause and check’ option works. Is the invariant fulfilled?
 
+* No se está obteniendo los resultados que se esperan en N=3.
+
+![check](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/inmortals1.png)
+
 4. A first hypothesis that the race condition for this function (pause and check) is presented is that the program consults the list whose values ​​it will print, while other threads modify their values. To correct this, do whatever is necessary so that, before printing the current results, all other threads are paused. Additionally, implement the ‘resume’ option.
 
 5. Check the operation again (click the button many times). Is the invariant fulfilled or not ?.
@@ -78,6 +90,11 @@ Se modifican las clases ``` Consumer.java ``` y ``` Producer.java ```. En la im�
 6. Identify possible critical regions in regards to the fight of the immortals. Implement a blocking strategy that avoids race conditions. Remember that if you need to use two or more ‘locks’ simultaneously, you can use nested synchronized blocks:
 
 7. After implementing your strategy, start running your program, and pay attention to whether it comes to a halt. If so, use the jps and jstack programs to identify why the program stopped.
+
+Las regiones criticas encontradas son:
+
+* Se produce un bloqueo cuando dos jugadores se atacan al mismo tiempo y no se pueden atacar por el bloqueo ocasionado.
+* Con la variable health tambien ocurre que cuando 2 o mas inmortales quieran esten restando vida a un mismo inmortal.
 
 8. Consider a strategy to correct the problem identified above (you can review Chapter 15 of Java Concurrency in Practice again).
 
