@@ -87,6 +87,10 @@ Se modifican las clases ``` Consumer.java ``` y ``` Producer.java ```. En la im�
 
 4. A first hypothesis that the race condition for this function (pause and check) is presented is that the program consults the list whose values ​​it will print, while other threads modify their values. To correct this, do whatever is necessary so that, before printing the current results, all other threads are paused. Additionally, implement the ‘resume’ option.
 
+* Se hacen los cambios y adiciones necesarias para que los hilos se pausen al seleccionar el boton pausar y chekear.
+
+![pausecheck](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/pausecheck.png)
+
 5. Check the operation again (click the button many times). Is the invariant fulfilled or not ?.
 
 6. Identify possible critical regions in regards to the fight of the immortals. Implement a blocking strategy that avoids race conditions. Remember that if you need to use two or more ‘locks’ simultaneously, you can use nested synchronized blocks:
@@ -102,12 +106,28 @@ Las regiones criticas encontradas son:
 
 9. Once the problem is corrected, rectify that the program continues to function consistently when 100, 1000 or 10000 immortals are executed. If in these large cases the invariant begins to be breached again, you must analyze what was done in step 4.
 
+* Con 100 inmortales se cumple la invariante.
+
+![cien](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/cien.png)
+
+* Con 1000 inmortales se cumple la invariante.
+
+![mil](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/mil.png)
+
+* Con 10000 inmortales se cumple la invariante.
+
+![diezmil](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/diezmil.png)
+
 10. An annoying element for the simulation is that at a certain point in it there are few living 'immortals' making failed fights with 'immortals' already dead. It is necessary to suppress the immortal dead of the simulation as they die. 
 
 * Analyzing the simulation operation scheme, could this create a race condition? Implement the functionality, run the simulation and see what problem arises when there are many 'immortals' in it. Write your conclusions about it in the file ANSWERS.txt. 
 * Correct the previous problem WITHOUT using synchronization, since making access to the shared list of immortals sequential would make simulation extremely slow. 
 
 11. To finish, implement the STOP option.
+
+*  Se puede observar que al seleccionar el boton stop se detiene la ejecución.
+
+![stop](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/stop.png)
 
 ![step6](https://github.com/mariahv9/ARSWLab2/blob/master/resoruces/Step6.png)
 
