@@ -89,12 +89,12 @@ Se modifican las clases ``` Consumer.java ``` y ``` Producer.java ```. En la im�
 
 6. Identify possible critical regions in regards to the fight of the immortals. Implement a blocking strategy that avoids race conditions. Remember that if you need to use two or more ‘locks’ simultaneously, you can use nested synchronized blocks:
 
-7. After implementing your strategy, start running your program, and pay attention to whether it comes to a halt. If so, use the jps and jstack programs to identify why the program stopped.
-
 Las regiones criticas encontradas son:
 
 * Se produce un bloqueo cuando dos jugadores se atacan al mismo tiempo y no se pueden atacar por el bloqueo ocasionado.
 * Con la variable health tambien ocurre que cuando 2 o mas inmortales quieran esten restando vida a un mismo inmortal.
+
+7. After implementing your strategy, start running your program, and pay attention to whether it comes to a halt. If so, use the jps and jstack programs to identify why the program stopped.
 
 8. Consider a strategy to correct the problem identified above (you can review Chapter 15 of Java Concurrency in Practice again).
 
